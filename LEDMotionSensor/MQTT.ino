@@ -28,18 +28,51 @@ void callback(char* topic, byte* message, unsigned int length) {
     }
   }
   else if (String(topic) == "esp32/ledstrip") {
-    Serial.printf("Changing mode of LED strip to %s\n", messageTemp);
+    Serial.printf("Changing colour of LED strip to %s\n", messageTemp);
     if (messageTemp == "fire"){
       colourValue = 1;
     }
-    /*else if (messageTemp == "meteor"){
+    else if (messageTemp == "red"){
       colourValue = 2;
+      setAll(0xff, 0x00, 0x00);
+      delay(2000);
+      setAll(0x00, 0x00, 0x00);
     }
-    else if (messageTemp == "rainbow"){
+    else if (messageTemp == "green"){
       colourValue = 3;
-    }*/
+      setAll(0x00, 0xff, 0x00);
+      delay(2000);
+      setAll(0x00, 0x00, 0x00);
+    }
+    else if (messageTemp == "blue"){
+      colourValue = 4;
+      setAll(0x00, 0x00, 0xff);
+      delay(2000);
+      setAll(0x00, 0x00, 0x00);
+    }
+    else if (messageTemp == "pink"){
+      colourValue = 5;
+      setAll(0xff, 0x69, 0xb4);
+      delay(2000);
+      setAll(0x00, 0x00, 0x00);
+    }
+    else if (messageTemp == "purple"){
+      colourValue = 6;
+      setAll(0x80, 0x00, 0x80);
+      delay(2000);
+      setAll(0x00, 0x00, 0x00);
+    }
+    else if (messageTemp == "teal"){
+      colourValue = 7;
+      setAll(0x00, 0x80, 0x80);
+      delay(2000);
+      setAll(0x00, 0x00, 0x00);
+    }
     else {
       colourValue = 0;
+      setAll(0xff, 0xff, 0xff);
+      delay(2000);
+      setAll(0x00, 0x00, 0x00);
     }
   }
 }

@@ -102,7 +102,7 @@ void loop() {
     gotNewTemperature = false;
   }
 
-  if ((currentHour <= 6) || (currentHour >= 22)){
+  if ((currentHour <= 6) || (currentHour >= 21)){
     if(IsPeopleDetected()){
       char statusString[] = "true";
       // Serial.printf("Motion Detect: %s\n", statusString);
@@ -117,19 +117,31 @@ void loop() {
     }
    }
 
-    while (lightFlag == true && value != 1400) {
+    while (lightFlag == true && value != 3000) {
       if (colourValue == 0){
-        setAll(0xff, 0xfa, 0xfa);
+        setAll(0xff, 0xff, 0xff);
       }
       else if (colourValue == 1){
         Fire(55, 120, 20);
       }
-      /*else if (colourValue == 2){
-        meteorRain(0x42,0x16,0x8f, 6, 64, true, 30);
+      else if (colourValue == 2){
+        setAll(0xff, 0x00, 0x00);
       }
       else if (colourValue == 3){
-        rainbowCycle(20);
-      }*/
+        setAll(0x00, 0xff, 0x00);
+      }
+      else if (colourValue == 4){
+        setAll(0x00, 0x00, 0xff);
+      }
+      else if (colourValue == 5){
+        setAll(0xff, 0x69, 0xb4);
+      }
+      else if (colourValue == 6){
+        setAll(0x80, 0x00, 0x80);
+      }
+      else if (colourValue == 7){
+        setAll(0x00, 0x80, 0x80);
+      }
       value++;
       delay(10);
     }

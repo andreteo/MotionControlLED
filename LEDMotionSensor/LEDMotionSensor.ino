@@ -9,13 +9,13 @@
 #define PIR_MOTION_SENSOR 35
 
 // SSID/Password combination
-const char* ssid = "Teo";
-const char* password = "S1414466H";
-// const char* mqttUser = "pi";
-// const char* mqttPassword = "12J71f94";
+const char* ssid = "*";
+const char* password = "*";
+// const char* mqttUser = "*";
+// const char* mqttPassword = "*";
 
 // MQTT Broker IP address
-const char* mqtt_server = "192.168.86.24";
+const char* mqtt_server = "*";
 const int OnboardLED = 2; // LED pin
 
 // Get time from server
